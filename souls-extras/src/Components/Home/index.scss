@@ -1,0 +1,56 @@
+:root {
+    --main-header-color: rgb(15, 171, 116);
+    --paragraph-color: #fff;
+    --background-color: #302e2c;
+  }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    background-color: var(--background-color) !important;
+    font-size: 1.3125rem;
+    line-height: 1.6rem;
+    margin-bottom: 10%;
+  }
+
+  .main-container{
+
+    .top-sub-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(58, 54, 54);
+
+        .player-box{
+            margin-top: 5em;
+            // height: 50em;
+            width: 8em;
+            border:1px solid rgb(124, 124, 19);
+
+            .player-contents{
+                height: 40em;
+                border:1px solid rgb(29, 177, 140);
+                background-color: rgb(71, 70, 70);
+            }
+
+            .player-name{
+                height: 5em;
+                    background-color: green;
+            }
+        }
+    }
+
+    .bottom-sub-container{
+        background-color: rgb(216, 123, 123);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .dragable-players{
+            border: 1px solid yellow;
+        }
+    }
+  }
