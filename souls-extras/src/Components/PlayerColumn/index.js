@@ -1,18 +1,18 @@
 import React from "react";
 import { useState } from "react";
+import { RxCross1 } from "react-icons/rx";
 
 import DropAreaColumn from "../DropAreaColumn";
 import PlayersInfoCard from "../PlayersInfoCard";
 import "./index.scss";
 
 const PlayerColum = ({
-  name,
-  logo,
   activePlayer,
   players,
   onDelete,
   onDrop,
-  PlayerColumnProp,
+  PlayerColumnName,
+  PlayerColumnLogo
 }) => {
   const [showDropArea, setShowDropArea] = useState(false);
 
@@ -24,7 +24,7 @@ const PlayerColum = ({
         onDrop={() => {
           console.log(players);
           setShowDropArea(false);
-          onDrop(activePlayer, PlayerColumnProp); // Pass activePlayer here
+          onDrop(activePlayer, PlayerColumnName); // Pass activePlayer here
         }}
         onDragOver={(e) => e.preventDefault()}
         className={showDropArea ? "player-contents-drop" : "player-contents"}
@@ -41,7 +41,11 @@ const PlayerColum = ({
         )}
       </div>
 
-      <div className="player-info"></div>
+      <div className="player-info">
+        {PlayerColumnLogo}
+      {PlayerColumnName}
+
+      </div>
     </div>
   );
 };
