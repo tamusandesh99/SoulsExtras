@@ -12,7 +12,7 @@ const PlayerColum = ({
   onDelete,
   onDrop,
   PlayerColumnName,
-  PlayerColumnLogo
+  PlayerColumnLogo,
 }) => {
   const [showDropArea, setShowDropArea] = useState(false);
 
@@ -32,8 +32,14 @@ const PlayerColum = ({
         {Array.isArray(players) && players.length > 0 ? (
           players.map((player, index) => (
             <div key={index} className="dropped-player">
-              <img src={player.logo}  />
+              <img src={player.logo} />
               <span>{player.name}</span>
+              <RxCross1
+                className="delete-player"
+                onClick={() =>
+                  onDelete(PlayerColumnName, player.name, player.logo)
+                }
+              />
             </div>
           ))
         ) : (
@@ -42,9 +48,8 @@ const PlayerColum = ({
       </div>
 
       <div className="player-info">
-        {PlayerColumnLogo}
-      {PlayerColumnName}
-
+        <img src={PlayerColumnLogo}></img>
+        <span>{PlayerColumnName}</span>
       </div>
     </div>
   );

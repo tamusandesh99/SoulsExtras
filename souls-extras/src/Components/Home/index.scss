@@ -28,7 +28,6 @@ body {
     align-items: center;
     background-color: rgb(58, 54, 54);
     gap: 0.5em;
-
   }
 
   .bottom-sub-container {
@@ -37,6 +36,18 @@ body {
     align-items: center;
     margin-top: 5em;
     gap: 0.5em;
+  }
 
+  @media (max-width: 1500px) {
+    // .top-sub-container{
+    //   display: grid;
+    //   grid-template-rows: 15em 13em 13em 13em 13em;
+    //   grid-template-columns: 8em 8em 8em 8em 8em;
+    // }
+    .bottom-sub-container {
+      display: grid;
+      grid-template-rows: 3em 3em 3em 3em 3em;
+      grid-template-columns: 7em 7em 7em 7em 7em;
+    }
   }
 }

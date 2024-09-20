@@ -7,7 +7,7 @@ const PlayersInfo = ({ name, logo, setActivePlayer, PlayerColumnName }) => {
             onDragStart={() => setActivePlayer()}
             onDragEnd={() => setActivePlayer(null)}>
 
-            <div className='player-logo'>
+            <div className='player-logo' draggable>
             <img src={logo} />
             </div>
             <div className='player-name'>

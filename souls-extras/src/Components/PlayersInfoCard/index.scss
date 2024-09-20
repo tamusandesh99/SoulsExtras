@@ -1,10 +1,9 @@
 .dragable-players {
     background-color: rgb(216, 123, 123);
     border: 1px solid yellow;
-    width: 10em;
-    height: 5em;
+    width: 7em;
+    height: 3em;
     cursor: grab;
-
     display: flex;
 
     .player-logo{
@@ -12,7 +11,7 @@
       border: 1px solid red;
       img{
         border-radius: 50%;
-        width: 5em;
+        width: 3em;
         height: 100%;
       }
     }
@@ -20,4 +19,6 @@
     .player-name{
       // width: 50%;
     }
+
   }
+

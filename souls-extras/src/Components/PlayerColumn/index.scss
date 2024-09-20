@@ -2,7 +2,7 @@
     margin-top: 5em;
 
     // height: 50em;
-    width: 10em;
+    max-width: 7em;
     border: 1px solid rgb(124, 124, 19);
 
     .player-contents {
@@ -20,16 +20,29 @@
     }
 
     .player-info {
+      display: flex;
       margin-top: 1em;
       height: 3em;
       background-color: green;
+
+      img{
+        width: 50%;
+        border-radius: 50%;
+      }
     }
 
     .dropped-player{
+      display: flex;
       background-color: rgb(216, 123, 123);
       border: 1px solid yellow;
-      width: 100%;
       height: 3em;
       transition: all 0.2s ease-in-out;
+        span{
+        }
+        
+        .delete-player{
+          border: 1px solid red;
+
+        }
     }
   }
