@@ -101,6 +101,15 @@ const Home = () => {
 
   return (
     <div className="main-container">
+      <div className="intro-container">
+        <h2>Make your prediction</h2>
+        <span>
+          {" "}
+          Drag the bottom players and place it on one of the player's column. 
+          Each players in column represents the opponet they can beat. 
+          For example, 
+        </span>
+      </div>
       <div className="top-sub-container">
         <PlayerColumn
           name="NPT"
@@ -193,8 +202,11 @@ const Home = () => {
           activePlayer={activePlayer}
         />
       </div>
-
+      <div className="drag-me">
+        <h1>Drag me</h1>
+      </div>
       <div className="bottom-sub-container">
+        
         <PlayersInfoCard
           name={"NPT"}
           logo={NPT_logo}
@@ -220,7 +232,7 @@ const Home = () => {
           name={"Blanxz"}
           logo={BLANXZ_logo}
           setActivePlayer={() =>
-            setActivePlayer({ name: "Blanxz", logo: BLANXZ_logo})
+            setActivePlayer({ name: "Blanxz", logo: BLANXZ_logo })
           }
         />
         <PlayersInfoCard
@@ -234,35 +246,35 @@ const Home = () => {
           name={"Parky"}
           logo={PARKY_logo}
           setActivePlayer={() =>
-            setActivePlayer({ name: "Parky", logo: PARKY_logo})
+            setActivePlayer({ name: "Parky", logo: PARKY_logo })
           }
         />
         <PlayersInfoCard
           name={"Adef"}
           logo={ADEF_logo}
           setActivePlayer={() =>
-            setActivePlayer({ name: "Adef", logo: ADEF_logo})
+            setActivePlayer({ name: "Adef", logo: ADEF_logo })
           }
         />
         <PlayersInfoCard
           name={"Chris"}
           logo={CHRIS_logo}
           setActivePlayer={() =>
-            setActivePlayer({ name: "Chris", logo: CHRIS_logo})
+            setActivePlayer({ name: "Chris", logo: CHRIS_logo })
           }
         />
         <PlayersInfoCard
           name={"Vswed"}
           logo={VSWED_logo}
           setActivePlayer={() =>
-            setActivePlayer({ name: "Vswed", logo: VSWED_logo})
+            setActivePlayer({ name: "Vswed", logo: VSWED_logo })
           }
         />
         <PlayersInfoCard
           name={"Bushy"}
           logo={BUSHY_logo}
           setActivePlayer={() =>
-            setActivePlayer({ name: "Bushy", logo: BUSHY_logo})
+            setActivePlayer({ name: "Bushy", logo: BUSHY_logo })
           }
         />
       </div>

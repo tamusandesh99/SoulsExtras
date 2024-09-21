@@ -11,7 +11,7 @@ const PlayersInfo = ({ name, logo, setActivePlayer, PlayerColumnName }) => {
             <img src={logo} />
             </div>
             <div className='player-name'>
-                <h2> {name} </h2>
+                <span> {name} </span>
             </div>
         </div>
     )

@@ -1,48 +1,96 @@
 .player-box {
-    margin-top: 5em;
+  margin-top: 1em;
 
-    // height: 50em;
+  // height: 50em;
+  max-width: 7em;
+  // border: 1px solid rgb(124, 124, 19);
+
+  .player-contents {
+    display: flex;
+    flex-direction: column-reverse;
     max-width: 7em;
-    border: 1px solid rgb(124, 124, 19);
+    min-height: 27em;
+    border-radius: 5px;
+    border: 1px solid rgb(125, 126, 126);
+    background-color: rgb(69, 70, 69);
+  }
+  .player-contents-drop {
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: 27em;
+    max-width: 7em;
+    border: 3px solid rgb(98, 187, 62);
+    background-color: rgb(97, 97, 97);
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+  }
 
-    .player-contents {
-      height: 27em;
-      border: 1px solid rgb(29, 177, 140);
-      background-color: rgb(71, 70, 70);
+  .default-message{
+    margin: auto;
+    text-align: center;
+    color: rgb(128, 125, 125);
+  }
 
+  .player-info {
+    display: flex;
+    border-radius: 5px;
+    padding: 5px;
+    // margin-top: 0.5em;
+    max-height: 4em;
+    background-color: rgb(4, 51, 54);
+    border-bottom: 3px solid rgb(148, 146, 146);
+    border-top: 10px solid rgb(15, 31, 27);
+    border-left: 3px solid rgb(148, 146, 146);
+    border-right: 3px solid rgb(148, 146, 146);
+    filter: drop-shadow(0.5rem 1.5rem 1rem rgba(129, 128, 128, 0.5));
+
+    img {
+      max-width: 3em;
+      border-radius: 50%;
     }
-    .player-contents-drop {
-      height: 27em;
-      border: 2px solid rgb(177, 29, 152);
-      background-color: rgb(71, 70, 70);
-      opacity: 1;
-      transition: all 0.2s ease-in-out;
-    }
 
-    .player-info {
-      display: flex;
-      margin-top: 1em;
-      height: 3em;
-      background-color: green;
-
-      img{
-        width: 50%;
-        border-radius: 50%;
-      }
-    }
-
-    .dropped-player{
-      display: flex;
-      background-color: rgb(216, 123, 123);
-      border: 1px solid yellow;
-      height: 3em;
-      transition: all 0.2s ease-in-out;
-        span{
-        }
-        
-        .delete-player{
-          border: 1px solid red;
-
-        }
+    span {
+      margin: auto;
+      color: rgb(192, 191, 191);
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
     }
   }
+
+  .dropped-player {
+    padding: 10px;
+    position: relative;
+    display: flex;
+    border-radius: 5px;
+    max-width: 7em;
+    background-color: rgb(48, 48, 48);
+    border: 2px solid rgb(156, 156, 48);
+    max-height: 6vh;
+    transition: all 0.2s ease-in-out;
+
+    span {
+      color: white;
+      margin: auto;
+    }
+
+    .delete-player {
+      position: absolute;
+      top: 0;
+      right: 0;
+      max-width: 5em;
+      color: white;
+      // border: 1px solid red;
+    }
+
+    img {
+      border-radius: 50%;
+      max-width: 3em;
+    }
+  }
+
+  @media (max-width: 1330px) {
+    margin-top: 0em;
+    max-width: 8vw;
+  }
+}

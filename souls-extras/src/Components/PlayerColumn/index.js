@@ -34,22 +34,29 @@ const PlayerColum = ({
             <div key={index} className="dropped-player">
               <img src={player.logo} />
               <span>{player.name}</span>
+              <div className="delete-player"> 
               <RxCross1
-                className="delete-player"
                 onClick={() =>
                   onDelete(PlayerColumnName, player.name, player.logo)
                 }
               />
+              </div>
             </div>
           ))
         ) : (
-          <></>
+          <span className="default-message">Drop players here</span>
         )}
+        {/* <div  className="drop-player-here">
+             
+             <span>Drop opponets here</span>
+             
+           </div> */}
       </div>
+      
 
-      <div className="player-info">
-        <img src={PlayerColumnLogo}></img>
-        <span>{PlayerColumnName}</span>
+      <div className="player-info"draggable='false'>
+        <img src={PlayerColumnLogo} draggable='false'></img>
+        <span draggable='false'>{PlayerColumnName}</span>
       </div>
     </div>
   );

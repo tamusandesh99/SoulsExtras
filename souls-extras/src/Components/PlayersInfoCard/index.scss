@@ -1,24 +1,49 @@
 .dragable-players {
-    background-color: rgb(216, 123, 123);
-    border: 1px solid yellow;
-    width: 7em;
-    height: 3em;
-    cursor: grab;
-    display: flex;
+  margin: auto;
+  display: flex;
+  padding: 0.3em;
+  border-radius: 5px;
+  background-color: rgb(27, 27, 27);
+  border: 1px solid rgb(156, 156, 48);
+  max-width: 7em;
+  max-height: 4em;
+  margin-bottom: 1em;
+  cursor: grab;
+  transition: transform 250ms;
 
-    .player-logo{
-      width: 5em;
-      border: 1px solid red;
-      img{
-        border-radius: 50%;
-        width: 3em;
-        height: 100%;
-      }
+  .player-logo {
+    img {
+      border-radius: 50%;
+      max-width: 3em;
     }
-
-    .player-name{
-      // width: 50%;
-    }
-
   }
 
+  .player-name {
+    // width: 50%;
+    margin: auto;
+    padding: 0.5rem;
+    color: rgb(223, 222, 222);
+    span {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 1330px) {
+    margin-top: 0em;
+    max-width: 6em;
+
+    .player-logo {
+      max-width: 5em;
+
+      img {
+        border-radius: 50%;
+        max-width: 3em;
+      }
+    }
+  }
+}
+
+.dragable-players:hover {
+  transform: translateY(-20px);
+  box-shadow: rgba(189, 115, 115, 0.56) 0px 15px 60px 15px;
+}
