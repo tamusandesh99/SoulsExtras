@@ -31,32 +31,39 @@ const PlayerColum = ({
       >
         {Array.isArray(players) && players.length > 0 ? (
           players.map((player, index) => (
-            <div key={index} className="dropped-player">
+            <div
+              onDragEnter={() => setShowDropArea(true)}
+              onDragLeave={() => setShowDropArea(false)}
+              key={index}
+              className="dropped-player"
+            >
               <img src={player.logo} />
               <span>{player.name}</span>
-              <div className="delete-player"> 
-              <RxCross1
-                onClick={() =>
-                  onDelete(PlayerColumnName, player.name, player.logo)
-                }
-              />
+              <div className="delete-player">
+                <RxCross1
+                  onClick={() =>
+                    onDelete(PlayerColumnName, player.name, player.logo)
+                  }
+                />
               </div>
             </div>
           ))
         ) : (
-          <span className="default-message">Drop players here</span>
+          <></>
+          // <span className="default-message">Drop players here</span>
         )}
-        {/* <div  className="drop-player-here">
-             
-             <span>Drop opponets here</span>
-             
-           </div> */}
+        <div
+          onDragEnter={() => setShowDropArea(true)}
+          onDragLeave={() => setShowDropArea(false)}
+          className="default-message"
+        >
+          <span>Drop opponets here</span>
+        </div>
       </div>
-      
 
-      <div className="player-info"draggable='false'>
-        <img src={PlayerColumnLogo} draggable='false'></img>
-        <span draggable='false'>{PlayerColumnName}</span>
+      <div className="player-info" draggable="false">
+        <img src={PlayerColumnLogo} draggable="false"></img>
+        <span draggable="false">{PlayerColumnName}</span>
       </div>
     </div>
   );

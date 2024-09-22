@@ -106,8 +106,7 @@ const Home = () => {
         <span>
           {" "}
           Drag the bottom players and place it on one of the player's column. 
-          Each players in column represents the opponet they can beat. 
-          For example, 
+          Each column represents the opponets you think they can defeat. For example, if you think NPT can defeat CBD then you drag CBD's card and place it on NPT's column
         </span>
       </div>
       <div className="top-sub-container">
