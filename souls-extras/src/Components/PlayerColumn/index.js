@@ -1,9 +1,7 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { RxCross1 } from "react-icons/rx";
 
-import DropAreaColumn from "../DropAreaColumn";
-import PlayersInfoCard from "../PlayersInfoCard";
 import "./index.scss";
 
 const PlayerColum = ({
@@ -13,16 +11,19 @@ const PlayerColum = ({
   onDrop,
   PlayerColumnName,
   PlayerColumnLogo,
+  columnRefs,
 }) => {
   const [showDropArea, setShowDropArea] = useState(false);
 
   return (
-    <div className="player-box">
+    <div
+    ref={(el) => (columnRefs.current[PlayerColumnName] = el)}
+      className="player-box"
+    >
       <div
         onDragEnter={() => setShowDropArea(true)}
         onDragLeave={() => setShowDropArea(false)}
         onDrop={() => {
-          console.log(players);
           setShowDropArea(false);
           onDrop(activePlayer, PlayerColumnName); // Pass activePlayer here
         }}

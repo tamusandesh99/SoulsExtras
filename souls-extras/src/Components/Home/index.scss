@@ -67,6 +67,21 @@ body {
     gap: 0.5em;
   }
 
+
+  .shake {
+    animation: shake-animation 0.4s ease-in-out; 
+    box-shadow: rgba(220, 24, 57, 0.56) 0px 15px 20px 10px;
+
+  }
+  
+  @keyframes shake-animation {
+    0% { transform: translate(0); }
+  25% { transform: translate(-5px, 5px); } // move left and up
+  50% { transform: translate(5px, 5px); }   // move right and down
+  75% { transform: translate(-5px, 5px); } // move left and up again
+  100% { transform: translate(0); }
+  }
+
   @media (max-width: 1460px) {
     .drag-me{
       margin-top: 3em;

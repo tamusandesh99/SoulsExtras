@@ -93,10 +93,11 @@
     }
   }
 
+
   @media (max-width: 1460px) {
     margin-top: 0em;
     // max-width: 10em;
-    
+
     .player-info {
       justify-content: center;
       span {
@@ -111,7 +112,7 @@
       span {
         display: none;
       }
-      img{
+      img {
         max-width: 2em;
       }
     }
@@ -125,15 +126,16 @@
 
     .player-info {
       justify-content: center;
-      img{
+      img {
         max-width: 2em;
       }
     }
 
     .dropped-player {
-      img{
+      img {
         max-width: 1.5em;
       }
     }
   }
 }
+

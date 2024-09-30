@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.scss";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import PlayersInfoCard from "../PlayersInfoCard";
 import PlayerColumn from "../PlayerColumn";
@@ -18,6 +18,7 @@ import BUSHY_logo from "../../ProfilePic/bushy.png";
 
 const Home = () => {
   const [activePlayer, setActivePlayer] = useState(null);
+  const columnRefs = useRef({});
 
   //list of columns, players are the players in columns
   const [columns, setColumns] = useState({
@@ -71,12 +72,20 @@ const Home = () => {
     if (activePlayer) {
       const columnPlayers = columns[PlayerColumnName].players; //get all players from current activeplayer column
 
+      // Check for duplicate names in the column
       const isDuplicate = columnPlayers.some(
         (player) => player.name === activePlayer.name
-      ); // Check for duplicate names in the column
-      const isOwnCard = activePlayer.name === PlayerColumnName; //check if current active player matches with current column that is being dropped on to
+      ); 
 
-      if (!isDuplicate && !isOwnCard) {
+      //check if current active player matches with current column that is being dropped on to
+      const isOwnCard = activePlayer.name === PlayerColumnName; 
+
+      // Check if PlayerColumnName already contains the activePlayer's column name
+      const reverseConflict = columns[activePlayer.name]?.players.some(
+        (player) => player.name === PlayerColumnName
+      );
+
+      if (!isDuplicate && !isOwnCard && !reverseConflict) {
         //case to check so that card with same name and own column isnt being dropped on
         setColumns((prevState) => ({
           ...prevState,
@@ -86,13 +95,42 @@ const Home = () => {
           },
         }));
       } else if (isDuplicate) {
-        console.log(
-          `${activePlayer.name} already exists in ${PlayerColumnName} column.`
-        );
+        console.log('dup')
+
+        const columnElement = columnRefs.current[PlayerColumnName]; // Access the column DOM element
+        if (columnElement) {
+          // Add the "shake" class to trigger animation
+          columnElement.classList.add("shake");
+          
+          // Remove the shake class after animation ends (e.g., after 500ms)
+          setTimeout(() => {
+            columnElement.classList.remove("shake");
+          }, 500); // Adjust the timeout to match your animation duration
+        }
+
       } else if (isOwnCard) {
-        console.log(
-          `You cannot add your own player card (${activePlayer.name}) to the ${PlayerColumnName} column.`
-        );
+        const columnElement = columnRefs.current[PlayerColumnName]; // Access the column DOM element
+        if (columnElement) {
+          // Add the "shake" class to trigger animation
+          columnElement.classList.add("shake");
+          
+          // Remove the shake class after animation ends (e.g., after 500ms)
+          setTimeout(() => {
+            columnElement.classList.remove("shake");
+          }, 500); // Adjust the timeout to match your animation duration
+        }
+      }
+      else if(reverseConflict){
+        const columnElement = columnRefs.current[PlayerColumnName]; // Access the column DOM element
+        if (columnElement) {
+          // Add the "shake" class to trigger animation
+          columnElement.classList.add("shake");
+          
+          // Remove the shake class after animation ends (e.g., after 500ms)
+          setTimeout(() => {
+            columnElement.classList.remove("shake");
+          }, 500); // Adjust the timeout to match your animation duration
+        }
       }
 
       setActivePlayer(null); // Reset all values after playerinfocard is dropped
@@ -105,8 +143,10 @@ const Home = () => {
         <h2>Make your prediction</h2>
         <span>
           {" "}
-          Drag the bottom players and place it on one of the player's column. 
-          Each column represents the opponets you think they can defeat. For example, if you think NPT can defeat CBD then you drag CBD's card and place it on NPT's column
+          Drag the bottom players and place it on one of the player's column.
+          Each column represents the opponets you think they can defeat. For
+          example, if you think NPT can defeat CBD then you drag CBD's card and
+          place it on NPT's column
         </span>
       </div>
       <div className="top-sub-container">
@@ -118,6 +158,7 @@ const Home = () => {
           onDrop={onDrop}
           onDelete={deletePlayer}
           activePlayer={activePlayer}
+          columnRefs={columnRefs}
         />
         <PlayerColumn
           name="CBD"
@@ -127,6 +168,7 @@ const Home = () => {
           onDrop={onDrop}
           onDelete={deletePlayer}
           activePlayer={activePlayer}
+          columnRefs={columnRefs}
         />
         <PlayerColumn
           name="Aggy"
@@ -136,6 +178,7 @@ const Home = () => {
           onDrop={onDrop}
           onDelete={deletePlayer}
           activePlayer={activePlayer}
+          columnRefs={columnRefs}
         />
         <PlayerColumn
           name="Blanxz"
@@ -145,6 +188,7 @@ const Home = () => {
           onDrop={onDrop}
           onDelete={deletePlayer}
           activePlayer={activePlayer}
+          columnRefs={columnRefs}
         />
         <PlayerColumn
           name="GPB"
@@ -154,6 +198,7 @@ const Home = () => {
           onDrop={onDrop}
           onDelete={deletePlayer}
           activePlayer={activePlayer}
+          columnRefs={columnRefs}
         />
         <PlayerColumn
           name="Parky"
@@ -163,6 +208,7 @@ const Home = () => {
           onDrop={onDrop}
           onDelete={deletePlayer}
           activePlayer={activePlayer}
+          columnRefs={columnRefs}
         />
         <PlayerColumn
           name="Adef"
@@ -172,6 +218,7 @@ const Home = () => {
           onDrop={onDrop}
           onDelete={deletePlayer}
           activePlayer={activePlayer}
+          columnRefs={columnRefs}
         />
         <PlayerColumn
           name="Chris"
@@ -181,6 +228,7 @@ const Home = () => {
           onDrop={onDrop}
           onDelete={deletePlayer}
           activePlayer={activePlayer}
+          columnRefs={columnRefs}
         />
         <PlayerColumn
           name="Vswed"
@@ -190,6 +238,7 @@ const Home = () => {
           onDrop={onDrop}
           onDelete={deletePlayer}
           activePlayer={activePlayer}
+          columnRefs={columnRefs}
         />
         <PlayerColumn
           name="Bushy"
@@ -199,13 +248,13 @@ const Home = () => {
           onDrop={onDrop}
           onDelete={deletePlayer}
           activePlayer={activePlayer}
+          columnRefs={columnRefs}
         />
       </div>
       <div className="drag-me">
         <h1>Drag me</h1>
       </div>
       <div className="bottom-sub-container">
-        
         <PlayersInfoCard
           name={"NPT"}
           logo={NPT_logo}
