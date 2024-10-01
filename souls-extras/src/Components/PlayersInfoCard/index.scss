@@ -11,6 +11,7 @@
   cursor: grab;
   transition: transform 250ms;
 
+
   .player-logo {
     img {
       border-radius: 50%;
@@ -28,7 +29,12 @@
     }
   }
 
-  @media (max-width: 1460px) {
+  &:hover {
+    transform: translateY(-20px);
+    box-shadow: rgba(189, 115, 115, 0.56) 0px 15px 60px 15px;
+  }
+
+  @media (max-width: 1540px) {
     margin-top: 1em;
     // margin-left: 1em;
     min-width: 7em;
@@ -46,16 +52,20 @@
     margin-top: 1em;
     .player-logo {
       max-width: 2em;
-
       img {
         border-radius: 50%;
         max-width: 2em;
       }
     }
+    &:hover {
+      transform: translateY(0);
+      box-shadow: 0 0 0 0;
+    }
   }
-}
 
-.dragable-players:hover {
-  transform: translateY(-20px);
-  box-shadow: rgba(189, 115, 115, 0.56) 0px 15px 60px 15px;
+  @media (max-width: 700px){
+    .player-name{
+      display: none;
+    }
+  }
 }

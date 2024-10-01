@@ -117,7 +117,8 @@
       }
     }
   }
-  @media (max-width: 760px) {
+
+  @media (max-width: 910px) {
     margin-top: 0em;
     max-width: 7em;
     span {
@@ -135,6 +136,17 @@
       img {
         max-width: 1.5em;
       }
+    }
+  }
+
+  @media (max-width: 700px) {
+    .player-contents {
+      min-height: 10em;
+      
+    }
+  
+    .player-contents-drop {
+      min-height: 10em;
     }
   }
 }

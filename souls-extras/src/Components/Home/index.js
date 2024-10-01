@@ -95,7 +95,6 @@ const Home = () => {
           },
         }));
       } else if (isDuplicate) {
-        console.log('dup')
 
         const columnElement = columnRefs.current[PlayerColumnName]; // Access the column DOM element
         if (columnElement) {
@@ -324,6 +323,7 @@ const Home = () => {
           setActivePlayer={() =>
             setActivePlayer({ name: "Bushy", logo: BUSHY_logo })
           }
+          
         />
       </div>
     </div>

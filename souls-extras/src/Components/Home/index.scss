@@ -28,10 +28,10 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
+
   // overflow-x: hidden;
 
-  .intro-container{
+  .intro-container {
     // border: 1px solid red;
     line-height: 2rem;
     max-width: 60em;
@@ -39,7 +39,6 @@ body {
     margin-bottom: 1em;
     text-align: center;
     color: white;
-  
   }
 
   .top-sub-container {
@@ -50,10 +49,9 @@ body {
     min-height: 27em;
     // background-color: rgb(34, 33, 33);
     gap: 0.5em;
-    
   }
 
-  .drag-me{
+  .drag-me {
     margin-top: 4em;
     margin-bottom: 1em;
     text-align: center;
@@ -67,23 +65,31 @@ body {
     gap: 0.5em;
   }
 
-
   .shake {
-    animation: shake-animation 0.4s ease-in-out; 
+    animation: shake-animation 0.4s ease-in-out;
     box-shadow: rgba(220, 24, 57, 0.56) 0px 15px 20px 10px;
-
   }
-  
+
   @keyframes shake-animation {
-    0% { transform: translate(0); }
-  25% { transform: translate(-5px, 5px); } // move left and up
-  50% { transform: translate(5px, 5px); }   // move right and down
-  75% { transform: translate(-5px, 5px); } // move left and up again
-  100% { transform: translate(0); }
+    0% {
+      transform: translate(0);
+    }
+    25% {
+      transform: translate(-5px, 5px);
+    } // move left and up
+    50% {
+      transform: translate(5px, 5px);
+    } // move right and down
+    75% {
+      transform: translate(-5px, 5px);
+    } // move left and up again
+    100% {
+      transform: translate(0);
+    }
   }
 
-  @media (max-width: 1460px) {
-    .drag-me{
+  @media (max-width: 1540px) {
+    .drag-me {
       margin-top: 3em;
       margin-bottom: 1em;
       text-align: center;
@@ -93,21 +99,44 @@ body {
 
     .bottom-sub-container {
       display: grid;
-      grid-template-rows: 3em 3em 3em 3em 3em;
+      grid-template-rows: 3em 3em;
       grid-template-columns: 7em 7em 7em 7em 7em;
     }
   }
-  @media (max-width: 760px) {
-    .drag-me{
+  @media (max-width: 910px) {
+    .drag-me {
       margin-top: 2em;
       margin-bottom: 1em;
       text-align: center;
       color: white;
       font-size: 1rem;
     }
+  }
 
+  @media (max-width: 810px) {
     .bottom-sub-container {
-      // overflow-x: scroll;
+      overflow-x: hidden;
+      grid-template-rows: 3em 3em 3em;
+      grid-template-columns: 7em 7em 7em 7em;
+    }
+  }
+
+  @media (max-width: 700px) {
+
+    .intro-container{
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+
+    .top-sub-container {
+      min-height: 10em;
+      overflow-x: hidden;
+    }
+    .bottom-sub-container{
+      // border: 1px solid red;
+      padding: 1em;
+      grid-template-rows: 3em 3em;
+      grid-template-columns: 3em 3em 3em 3em 3em;
     }
   }
 }
